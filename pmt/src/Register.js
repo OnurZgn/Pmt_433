@@ -21,16 +21,17 @@ const Register = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Send user data (name, surname, email) to Cloud Function
-      const url = "http://localhost:5001/projectmanagmenttool433/us-central1/addmessage"; // Cloud Function URL
-      const userData = {
-        email: user.email,
-        name: name,
-        surname: surname,
-      };
+        // Send user data (name, surname, email, uid) to Cloud Function
+    const url = "http://localhost:5001/projectmanagmenttool433/us-central1/addmessage"; // Cloud Function URL
+    const userData = {
+      email: user.email,
+      name: name,
+      surname: surname,
+      uid: user.uid // Add UID to the user data
+    };
 
-       // Make a GET request to the Cloud Function, passing the user data
-    const response = await fetch(`${url}?name=${encodeURIComponent(userData.name)}&surname=${encodeURIComponent(userData.surname)}&email=${encodeURIComponent(userData.email)}`, {
+    // Make a GET request to the Cloud Function, passing the user data
+    const response = await fetch(`${url}?name=${encodeURIComponent(userData.name)}&surname=${encodeURIComponent(userData.surname)}&email=${encodeURIComponent(userData.email)}&uid=${encodeURIComponent(userData.uid)}`, {
       method: 'GET',
     });
 

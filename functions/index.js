@@ -10,13 +10,12 @@ if (process.env.FIREBASE_EMULATOR_HOST) {
   firestore.useEmulator("localhost", 8080);  // Ensure it uses the Firestore emulator
 }
 
-
 exports.addmessage = onRequest(async (req, res) => {
   try {
-    const { name, surname, email } = req.query;
+    const { name, surname, email, uid } = req.query;
 
     // Validate inputs
-    if (!name || !surname || !email) {
+    if (!name || !surname || !email || !uid) {
       res.status(400).json({ error: 'Missing required parameters' });
       return;
     }
@@ -24,14 +23,15 @@ exports.addmessage = onRequest(async (req, res) => {
     // Push the user data into Firestore using the Firebase Admin SDK
     const writeResult = await getFirestore()
       .collection("users")
-      .add({
+      .doc(uid)  // Use the UID to set the document ID
+      .set({
         name: name,
         surname: surname,
         email: email,
         createdAt: new Date(),
       });
 
-    res.json({ result: `User data with ID: ${writeResult.id} added.` });
+    res.json({ result: `User data with UID: ${uid} added.` });
   } catch (error) {
     logger.error("Error adding user data:", error);
     res.status(500).json({ error: 'Failed to add user data.' });

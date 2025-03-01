@@ -13,7 +13,16 @@ const Login = () => {
     e.preventDefault();
     const auth = getAuth();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      // Sign in with email and password
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+      // Get the user object
+      const user = userCredential.user;
+
+      // Print user ID (UID) to the console
+      console.log("User ID (UID):", user.uid);
+      
+      // Navigate to the dashboard
       navigate('/dashboard');
     } catch (err) {
       setError('Giriş başarısız. Lütfen tekrar deneyin.');
