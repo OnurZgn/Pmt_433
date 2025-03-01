@@ -30,16 +30,27 @@ const Dashboard = () => {
       });
   };
 
+  // Navigate to the user’s page
+  const goToUserPage = () => {
+    navigate(`/user/${user.uid}`); // Navigate to user’s unique page using their UID
+  };
+
   return (
     <div className="dashboard-container">
       <h1>Welcome, {user ? user.email : 'Unknown User'}</h1>
       <p>You've successfully logged into the dashboard.</p>
 
+      
       {/* Link to create project page */}
       <button onClick={() => navigate('/create-project')}>Create New Project</button>
       
       {user && (
         <button onClick={handleSignOut}>Sign Out</button>
+      )}
+
+      {/* Navigate to User Page Button */}
+       {user && (
+        <button onClick={goToUserPage}>Go to My Page</button>
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import Dashboard from './Dashboard';
-import User from './User';
+import UserPage from './UserPage';
 import CreateProject from './CreateProject';  // Import CreateProject component
 
 const App = () => (
@@ -11,7 +11,7 @@ const App = () => (
     <Route path="/" element={<Login />} />
     <Route path="/register" element={<Register />} />
     <Route path="/dashboard" element={<Dashboard />} />
-    <Route path="/user/:userid" element={<User />} />
+    <Route path="/user/:uid" element={<UserPage />} />
     <Route path="/create-project" element={<CreateProject />} /> {/* Route for CreateProject */}
   </Routes>
 );

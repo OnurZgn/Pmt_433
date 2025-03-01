@@ -17,36 +17,44 @@ const Register = () => {
     const auth = getAuth();
 
     try {
-      // Firebase Authentication ile kullanıcı kaydı yap
+      // Register the user with email and password
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Firestore Emulator kullanıyorsan LOCALHOST'u kullan
-      const url = "http://localhost:5001/projectmanagmenttool433/us-central1/addmessage"; // Firestore Emulator için
+        // Send user data (name, surname, email, uid) to Cloud Function
+    const url = "http://localhost:5001/projectmanagmenttool433/us-central1/addmessage"; // Cloud Function URL
+    const userData = {
+      email: user.email,
+      name: name,
+      surname: surname,
+      uid: user.uid // Add UID to the user data
+    };
 
-      const userData = {
-        email: user.email,
-        name: name,
-        surname: surname,
-      };
+    // Make a GET request to the Cloud Function, passing the user data
+    const response = await fetch(`${url}?name=${encodeURIComponent(userData.name)}&surname=${encodeURIComponent(userData.surname)}&email=${encodeURIComponent(userData.email)}&uid=${encodeURIComponent(userData.uid)}`, {
+      method: 'GET',
+    });
 
-      // Cloud Function'a GET isteği yap
-      const response = await fetch(`${url}?name=${encodeURIComponent(userData.name)}&surname=${encodeURIComponent(userData.surname)}&email=${encodeURIComponent(userData.email)}`, {
-        method: 'GET',
-      });
+    // Handle the response from the Cloud Function
+    const data = await response.json();
+    console.log("Response from Cloud Function:", data);
 
-      const data = await response.json();
-      console.log("Response from Cloud Function:", data);
+    if (response.ok) {
+      // Provide feedback to the user (successful registration)
+      setMessage('Registration successful! User profile has been created.');
 
-      if (response.ok) {
-        setMessage('Kayıt başarılı! Kullanıcı Firestore\'a eklendi.');
-        navigate('/login');  // Kayıt başarılıysa giriş sayfasına yönlendir
-      } else {
-        setError('Kullanıcı verisi Firestore\'a kaydedilemedi. Lütfen tekrar deneyin.');
-      }
+      // Optionally navigate to the login page or home page after successful registration
+      navigate('/login');  // or navigate('/home');
+    } else {
+      // If Cloud Function failed, show an error
+      setError('Failed to save user data. Please try again.');
+    }
+
+      // Optionally navigate to the home page or login page
+      navigate('/');
 
     } catch (err) {
-      setError('Kayıt başarısız. Lütfen tekrar deneyin.');
+      setError('Registration failed. Please try again.');
     }
   };
 
