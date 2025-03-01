@@ -4,7 +4,6 @@ const { initializeApp } = require("firebase-admin/app");
 const { getFirestore } = require("firebase-admin/firestore");
 
 initializeApp();
-
 // Connect Firestore to the emulator if running locally
 if (process.env.FIREBASE_EMULATOR_HOST) {
   const firestore = getFirestore();

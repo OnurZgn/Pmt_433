@@ -29,20 +29,25 @@ const Register = () => {
         surname: surname,
       };
 
-      // Make a GET request to the Cloud Function, passing the user data
-      fetch(`${url}?name=${encodeURIComponent(userData.name)}&surname=${encodeURIComponent(userData.surname)}&email=${encodeURIComponent(userData.email)}`, {
-        method: 'GET',
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log("Response from Cloud Function:", data);
-        })
-        .catch(error => {
-          console.error("Error calling the Cloud Function:", error);
-        });
+       // Make a GET request to the Cloud Function, passing the user data
+    const response = await fetch(`${url}?name=${encodeURIComponent(userData.name)}&surname=${encodeURIComponent(userData.surname)}&email=${encodeURIComponent(userData.email)}`, {
+      method: 'GET',
+    });
 
-      // Provide feedback to the user
+    // Handle the response from the Cloud Function
+    const data = await response.json();
+    console.log("Response from Cloud Function:", data);
+
+    if (response.ok) {
+      // Provide feedback to the user (successful registration)
       setMessage('Registration successful! User profile has been created.');
+
+      // Optionally navigate to the login page or home page after successful registration
+      navigate('/login');  // or navigate('/home');
+    } else {
+      // If Cloud Function failed, show an error
+      setError('Failed to save user data. Please try again.');
+    }
 
       // Optionally navigate to the home page or login page
       navigate('/');
