@@ -21,15 +21,33 @@
     "functions": {
       "port": 5001
     },
-    "ui": {
-      "enabled": true
-    },
-    "singleProjectMode": true,
     "firestore": {
       "port": 8080
     },
     "hosting": {
       "port": 5000
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true,
+    "auth": {
+      "port": 9099
     }
-  }
+  },
+  "functions": {
+    "source": "functions",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "*.local"
+    ],
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
+    ]
+  },
+  "engines": {"node": "18"} 
+  
 }

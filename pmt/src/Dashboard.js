@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from './firebase-config'; // Import Firebase config
+import { auth } from './firebase-config';
 import { useNavigate } from 'react-router-dom';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  // Handle authentication state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
@@ -17,10 +17,9 @@ const Dashboard = () => {
       }
     });
 
-    return () => unsubscribe();  // Cleanup subscription
+    return () => unsubscribe();
   }, [navigate]);
 
-  // Sign out function
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -32,11 +31,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h1>Hoş Geldiniz, {user ? user.email : 'Bilinmeyen Kullanıcı'}</h1>
-      <p>Dashboard'a giriş yaptınız!</p>
+    <div className="dashboard-container">
+      <h1>Welcome, {user ? user.email : 'Unknown User'}</h1>
+      <p>You've successfully logged into the dashboard.</p>
 
-      {/* Show sign-out button if the user is logged in */}
+      {/* Link to create project page */}
+      <button onClick={() => navigate('/create-project')}>Create New Project</button>
+      
       {user && (
         <button onClick={handleSignOut}>Sign Out</button>
       )}
