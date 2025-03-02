@@ -1,10 +1,10 @@
-// Firebase SDK modüllerini import et
+// Import Firebase SDK modules
 import { initializeApp } from 'firebase/app';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
-// Firebase yapılandırma bilgileri
+// Firebase configuration details
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -14,13 +14,13 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-// Firebase uygulamasını başlat
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-// Firebase servislerini dışa aktar
+// Export Firebase services
 export const auth = getAuth(app);
-export const db = getFirestore(app);  // Firestore'ı ekledik
-export const functions = getFunctions(app);  // Firebase Functions'ı ekledik
+export const db = getFirestore(app);  // Added Firestore
+export const functions = getFunctions(app);  // Added Firebase Functions
 
 // Local Emulator Configuration
 if (window.location.hostname === 'localhost') {
