@@ -1,0 +1,180 @@
+:root {
+  --list-bg: #fff;
+  --list-border: #e5e7eb;
+  --list-radius: 0.75rem;
+  --list-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --list-item-hover: #f3f4f6;
+  --list-gap: 1rem;
+
+  --list-avatar-bg: #818cf8;
+  --list-avatar-color: #fff;
+  --list-badge-radius: 9999px;
+  --list-badge-font: 0.75rem;
+  --list-badge-padding: 0.25em 0.75em;
+  --list-action-radius: 6px;
+  --list-action-font: 0.9rem;
+  --list-action-padding: 0.5em 1em;
+}
+
+/* List container */
+.list-container {
+  background: var(--list-bg);
+  border-radius: var(--list-radius);
+  margin-bottom: 1.5rem;
+}
+
+/* List itself */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--list-gap);
+  padding: var(--list-padding);
+}
+
+/* List item */
+.list-item {
+  display: flex;
+  flex-direction: column;
+  background: var(--list-bg);
+  border: 1px solid var(--list-border);
+  border-radius: var(--list-radius);
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.list-item:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Avatar (for users/collaborators) */
+.list-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--list-avatar-bg);
+  color: var(--list-avatar-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Main content */
+.list-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* Title/Name */
+.list-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Description/Meta */
+.list-desc, .list-meta {
+  font-size: 0.92rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Badge (role, status, visibility) */
+.list-badge {
+  display: inline-block;
+  border-radius: var(--list-badge-radius);
+  font-size: var(--list-badge-font);
+  font-weight: 600;
+  padding: var(--list-badge-padding);
+  margin-left: 0.5rem;
+  background: #f3f4f6;
+  color: #4f46e5;
+}
+
+.list-badge.owner {
+  background: #fef3c7;
+  color: #b45309;
+}
+.list-badge.collaborator {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+.list-badge.public {
+  background: #d1fae5;
+  color: #059669;
+}
+.list-badge.private {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* Actions (buttons/links) */
+.list-actions {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  /* Remove the border-top */
+}
+
+.list-action-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.list-action-btn:not(.delete) {
+  background: var(--primary-light);
+  color: white;
+}
+
+.list-action-btn:not(.delete):hover {
+  background: var(--primary);
+  color: white;
+}
+
+.list-action-btn.delete {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+.list-action-btn.delete:hover {
+  background: var(--danger);
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .list-container {
+    padding: 0.5rem;
+  }
+  .list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+  }
+  .list-avatar {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  .list-actions {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

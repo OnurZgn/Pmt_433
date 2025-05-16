@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-900);
+  line-height: 1.5;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #4c51bf, #6c63ff); /* Gradient from indigo to purple */
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #e4e4e7; /* Slightly lighter gray for text */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  @apply inline-block px-8 py-3 border border-transparent rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300;
+}
+
+.btn-secondary {
+  @apply inline-block px-8 py-3 border border-transparent rounded-md text-base font-medium text-indigo-600 bg-white hover:bg-indigo-50 transition duration-300;
+}
+
+.hero .cta-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cta-buttons .btn-primary,
+.cta-buttons .btn-secondary {
+  font-size: 1rem;
+}
+
+.cta-buttons a {
+  text-decoration: none;
+}
+
+.cta-buttons a:hover {
+  opacity: 0.8;
+}
+
+/* For smaller devices */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Dashboard container */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Section Title */
+.dashboard h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.dashboard h1 span {
+  color: #4c51bf;
+}
+
+.dashboard p {
+  color: #4a5568;
+  margin-top: 5px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Card container for project list */
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card ul li {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 15px 0;
+}
+
+.card ul li:last-child {
+  border-bottom: none;
+}
+
+.card ul li a {
+  font-size: 1.1rem;
+  color: #4c51bf;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.card ul li a:hover {
+  color: #2b6cb0;
+}
+
+/* Button styles for the dashboard */
+.btn-create-project {
+  @apply inline-block px-6 py-3 text-white bg-indigo-600 hover:bg-indigo-700 rounded-md transition duration-300;
+}
+
+.btn-create-project:hover {
+  transform: scale(1.05); /* Hover effect */
+}
+
+/* For smaller devices */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 15px;
+  }
+
+  .card {
+    margin-top: 10px;
+    padding: 15px;
+  }
+}
