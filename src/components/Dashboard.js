@@ -28,14 +28,14 @@ export default function Dashboard() {
     <div className={`dashboard ${isLoading ? 'loading' : 'loaded'}`}>
       <div className="dashboard-header">
         <div className="user-welcome">
-          <span>Hoş geldin, {currentUser ? currentUser.email : 'Ziyaretçi'}</span>
+          <span>Welcome, {currentUser ? (currentUser.displayName || currentUser.email) : 'Guest'}</span>
         </div>
         <div className="dashboard-actions">
           <Link to="/projects/create" className="btn-create-project">
             <svg xmlns="http://www.w3.org/2000/svg" className="icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
             </svg>
-            Yeni Proje Oluştur
+            Create New Project
           </Link>
         </div>
       </div>

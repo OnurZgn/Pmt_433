@@ -46,6 +46,12 @@
   font-size: 1.2rem;
   color: #333;
   font-weight: 500;
+  transition: opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+.user-welcome span:hover {
+  opacity: 1;
 }
 
 .user-email {
