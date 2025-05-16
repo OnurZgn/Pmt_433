@@ -1,0 +1,49 @@
+.avatar {
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.avatar.tiny {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.avatar.small {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.875rem;
+}
+
+.avatar.medium {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+.avatar.large {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+}
+
+.avatar.clickable {
+  cursor: pointer;
+}
+
+.avatar.clickable:hover {
+  transform: scale(1.05);
+}
+
+/* Message-specific styles */
+.own-message .avatar {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

@@ -1,0 +1,191 @@
+@import './ProjectDetails.css';
+
+:root {
+  --color-white: #fff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+  --color-primary: #4f46e5;
+  --color-primary-light: #eef2ff;
+  --color-primary-dark: #4338ca;
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-2xl: 1.5rem;
+  --radius: 8px;
+  --radius-lg: 10px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --transition: 0.2s ease;
+}
+
+/* Base form layout */
+.create-project {
+  max-width: 800px;  /* slightly increased from 700px */
+  margin: var(--space-8) auto;
+  padding: var(--space-6);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.create-project-title {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-6);
+}
+
+.error-alert {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+/* Form elements */
+.form-group { margin-bottom: var(--space-6); }
+
+.form-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-2);
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius);
+  background-color: var(--color-white);
+  transition: all var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Radio groups */
+.radio-group {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space-4);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.radio-option:hover { background-color: var(--color-gray-50); }
+.radio-input { margin: var(--space-1) var(--space-3) 0 0; }
+.radio-label { flex: 1; }
+
+.radio-label-title {
+  font-weight: 500;
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-1);
+}
+
+.radio-label-description {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.btn-cancel, .btn-submit, .btn-back {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-cancel {
+  color: var(--color-gray-700);
+  background-color: var(--color-gray-100);
+}
+
+.btn-cancel:hover { background-color: var(--color-gray-200); }
+
+.btn-submit {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.btn-submit:hover:not(:disabled) { background-color: var(--color-primary-dark); }
+.btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* Project header */
+.project-header {
+  max-width: 800px;  /* match create-project width */
+  margin: 2rem auto 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-header .header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-gray-600);
+  background-color: var(--color-gray-100);
+}
+
+.btn-back:hover { background-color: var(--color-gray-200); }
+
+.icon-back {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,88 @@
+:root {
+  --btn-height: 2.5rem;
+  --btn-padding: 0.75rem 1.5rem;
+  --btn-font: 0.875rem;
+  --btn-radius: 0.5rem;
+  --btn-transition: all 0.2s ease;
+  
+  /* Button colors */
+  --btn-primary-bg: var(--color-primary, #4f46e5);
+  --btn-primary-hover: var(--color-primary-dark, #4338ca);
+  --btn-secondary-bg: var(--color-gray-100, #f3f4f6);
+  --btn-secondary-hover: var(--color-gray-200, #e5e7eb);
+  --btn-danger-bg: var(--color-danger-light, #fee2e2);
+  --btn-danger-hover: var(--color-danger, #ef4444);
+}
+
+/* Base button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-height);
+  padding: var(--btn-padding);
+  font-size: var(--btn-font);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Button variants */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--btn-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--color-gray-700);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--btn-secondary-hover);
+}
+
+.btn-danger {
+  background-color: var(--btn-danger-bg);
+  color: var(--color-danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--btn-danger-hover);
+  color: white;
+}
+
+/* Button sizes */
+.btn-sm {
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.813rem;
+}
+
+.btn-lg {
+  height: 3rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+/* Button with icon */
+.btn-icon {
+  gap: 0.5rem;
+}
+
+.btn-icon svg {
+  width: 1rem;
+  height: 1rem;
+}

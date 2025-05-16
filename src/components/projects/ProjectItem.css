@@ -1,0 +1,164 @@
+:root {
+  --color-white: #ffffff;
+  --color-gray-light: #f3f4f6;
+  --color-gray-dark: #4b5563;
+  --color-primary: #4f46e5;
+  --color-primary-light: #eef2ff;
+  --color-primary-dark: #4338ca;
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --transition: 0.2s ease;
+}
+
+.project-item {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.project-item.public-project {
+  border-left: 4px solid var(--color-success);
+}
+
+.project-item-content {
+  padding: 20px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.project-title a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  text-decoration: underline;
+}
+
+.project-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.visibility-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.visibility-badge.public {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.visibility-badge.private {
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.role-badge.owner {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.role-badge.collaborator {
+  background-color: #ede9fe;
+  color: #6d28d9;
+}
+
+.role-badge.public-project {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.visibility-badge i, .role-badge i {
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.project-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.project-date, .project-owner {
+  font-size: 13px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.project-date i, .project-owner i {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.project-description {
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+
+.project-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.project-action-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.project-action-btn.view {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.project-action-btn.view:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
