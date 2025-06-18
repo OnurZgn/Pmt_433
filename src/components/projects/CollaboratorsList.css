@@ -1,0 +1,161 @@
+.collaborators-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gray-800);
+  margin-bottom: 1rem;
+}
+
+.collaborators-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.collaborators-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--color-gray-700);
+  background-color: var(--color-gray-50);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.collaborators-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.collaborators-error {
+  color: var(--color-danger);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.collaborators-loading {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+}
+
+
+/* Collaborator Form Improvements */
+.collab-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.collab-form .form-input {
+  flex: 1;
+}
+
+
+.collaborators-empty {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+  font-style: italic;
+}
+
+.collaborators-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.collaborator-item {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius);
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.collaborator-item:hover {
+  background-color: var(--color-gray-100);
+  box-shadow: var(--shadow-sm);
+}
+
+.collaborator-item.clickable {
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.collaborator-item.clickable:hover {
+  background-color: var(--color-gray-100);
+}
+
+.collaborator-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.collaborator-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.collaborator-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-gray-800);
+}
+
+.collaborator-email {
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+}
+
+.collaborator-remove-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-danger);
+  background-color: var(--color-danger-light);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.collaborator-remove-btn:hover {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+}
+
+.owner-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+}
+
+.collaborator-actions {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  border-top: 1px solid var(--color-gray-200);
+}
+

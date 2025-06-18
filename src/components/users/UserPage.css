@@ -1,0 +1,32 @@
+@import '../projects/CreateProject.css';
+@import './Avatar.css';
+
+/* Only user-specific styles that aren't covered by CreateProject.css */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.user-info .avatar {
+  margin-bottom: var(--space-4);
+}
+
+.user-display-name {
+  font-size: var(--text-lg);
+  color: var(--color-gray-900);
+}
+
+
+.user-email,
+.user-meta {
+  display: block;
+  color: var(--color-gray-600);
+  padding: var(--space-2) 0;
+}
+
+/* Form groups should be full width */
+.user-info .form-group {
+  width: 100%;
+}
